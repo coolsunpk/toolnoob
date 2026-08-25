@@ -13,7 +13,7 @@ content="width=device-width, initial-scale=1.0">
 
 <meta
 name="description"
-content="Contact ToolNoob for questions, feedback and suggestions."
+content="Contact ToolNoob with questions, feedback, bug reports or suggestions for new online tools."
 >
 
 <style>
@@ -30,7 +30,7 @@ body {
 }
 
 header {
-    height: 70px;
+    height: 72px;
     background: white;
     border-bottom: 1px solid #e5e5e5;
 
@@ -42,7 +42,7 @@ header {
 }
 
 .logo {
-    font-size: 26px;
+    font-size: 27px;
     font-weight: 800;
 }
 
@@ -50,103 +50,70 @@ header {
     color: #777;
 }
 
-.home {
-    text-decoration: none;
+header a {
     color: #333;
+    text-decoration: none;
     font-size: 14px;
 }
 
 .container {
     max-width: 750px;
     margin: auto;
-    padding: 70px 20px;
+    padding: 60px 20px;
 }
 
 .card {
     background: white;
     border: 1px solid #e5e5e5;
     border-radius: 16px;
-    padding: 40px;
+
+    padding: 35px;
 
     box-shadow:
-        0 8px 30px rgba(0,0,0,.04);
+        0 8px 30px
+        rgba(0,0,0,.04);
 }
 
 h1 {
-    font-size: 42px;
     margin-top: 0;
+    font-size: 40px;
 }
 
-.subtitle {
+p {
     color: #666;
-    line-height: 1.7;
-    margin-bottom: 30px;
+    line-height: 1.8;
 }
 
-.field {
-    margin-bottom: 20px;
+.email-box {
+    margin-top: 30px;
+
+    background: #f1f2f4;
+
+    padding: 20px;
+
+    border-radius: 10px;
 }
 
-label {
+.email-box strong {
     display: block;
-    font-weight: 700;
     margin-bottom: 8px;
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 14px;
-
-    border: 1px solid #ccc;
-    border-radius: 9px;
-
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-
-    outline: none;
-}
-
-textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-input:focus,
-textarea:focus {
-    border-color: #555;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-
-    border: none;
-    border-radius: 9px;
-
-    background: #171717;
-    color: white;
-
-    font-size: 16px;
+.email {
+    color: #171717;
     font-weight: 700;
-
-    cursor: pointer;
+    text-decoration: none;
+    word-break: break-word;
 }
 
-button:hover {
-    background: #333;
+.email:hover {
+    text-decoration: underline;
 }
 
 .note {
-    margin-top: 25px;
-    padding: 18px;
-
-    background: #f1f2f4;
-    border-radius: 10px;
-
-    color: #666;
+    margin-top: 30px;
     font-size: 14px;
-    line-height: 1.6;
+    color: #888;
 }
 
 footer {
@@ -154,9 +121,11 @@ footer {
     padding: 35px;
 
     background: white;
+
     border-top: 1px solid #e5e5e5;
 
     color: #777;
+
     font-size: 13px;
 }
 
@@ -166,29 +135,11 @@ footer a {
     margin: 0 8px;
 }
 
-@media (max-width: 600px) {
-
-    header {
-        padding: 0 20px;
-    }
-
-    .card {
-        padding: 25px;
-    }
-
-    h1 {
-        font-size: 34px;
-    }
-
-}
-
 </style>
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -196,169 +147,76 @@ footer a {
     Tool<span>Noob</span>
 </div>
 
-<a
-href="index.html"
-class="home">
-
-    ← Back to Tools
-
+<a href="index.html">
+    ← Home
 </a>
 
 </header>
 
-
 <main class="container">
-
 
 <div class="card">
 
+<h1>Contact ToolNoob</h1>
 
-<h1>
-    Contact ToolNoob
-</h1>
-
-
-<p class="subtitle">
-
-Have a question, found a problem,
-or have a suggestion?
-
-Send us a message.
-
+<p>
+Have a question, found a problem with one of our tools,
+or have an idea for a new tool?
+We would like to hear from you.
 </p>
 
+<div class="email-box">
 
-<form
-action="https://formsubmit.co/sufyanp1121@gmail.com"
-method="POST"
->
+<strong>Email</strong>
 
+<a
+class="email"
+href="mailto:sufyanp1121@gmail.com">
 
-<input
-type="hidden"
-name="_subject"
-value="New ToolNoob Contact Message"
->
+sufyanp1121@gmail.com
 
-
-<input
-type="hidden"
-name="_captcha"
-value="false"
->
-
-
-<input
-type="hidden"
-name="_template"
-value="table"
->
-
-
-<input
-type="hidden"
-name="_next"
-value="https://YOUR-DOMAIN/contact.html?sent=true"
->
-
-
-<div class="field">
-
-<label for="name">
-    Name
-</label>
-
-<input
-type="text"
-id="name"
-name="name"
-placeholder="Your name"
-required
->
+</a>
 
 </div>
 
-
-<div class="field">
-
-<label for="email">
-    Email
-</label>
-
-<input
-type="email"
-id="email"
-name="email"
-placeholder="you@example.com"
-required
->
+<p class="note">
+When contacting us about a problem, please include the name
+of the tool and a short description of the issue.
+</p>
 
 </div>
-
-
-<div class="field">
-
-<label for="message">
-    Message
-</label>
-
-<textarea
-id="message"
-name="message"
-placeholder="Write your message..."
-required
-></textarea>
-
-</div>
-
-
-<button type="submit">
-    Send Message
-</button>
-
-
-</form>
-
-
-<div class="note">
-
-Your message will be sent to the
-ToolNoob email address.
-
-</div>
-
-
-</div>
-
 
 </main>
 
-
 <footer>
-
 
 <div style="margin-bottom: 15px;">
 
 <a href="index.html">
-    Home
+Home
 </a>
 
 <a href="about.html">
-    About
+About
 </a>
 
 <a href="privacy.html">
-    Privacy
+Privacy
+</a>
+
+<a href="terms.html">
+Terms
+</a>
+
+<a href="contact.html">
+Contact
 </a>
 
 </div>
 
-
 © 2026 ToolNoob · Free online tools
 
-
 </footer>
-
 
 </body>
 
