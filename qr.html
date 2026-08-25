@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Code Generator - ToolNoob</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #171717;
+}
+
+header {
+    height: 68px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #666;
+}
+
+.home {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 55px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    font-size: 40px;
+    margin: 0 0 12px;
+}
+
+.title p {
+    color: #777;
+}
+
+.tool-box {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 30px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+
+    resize: vertical;
+
+    padding: 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 9px;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #555;
+}
+
+.generate {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #171717;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.generate:hover {
+    background: #333;
+}
+
+.qr-result {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: #f1f2f4;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+#qrcode {
+    background: white;
+
+    display: inline-block;
+
+    padding: 15px;
+
+    border-radius: 8px;
+}
+
+.download {
+    margin-top: 15px;
+
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: white;
+
+    border: 1px solid #ccc;
+
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.info {
+    margin-top: 35px;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    line-height: 1.7;
+}
+
+.info h2 {
+    margin-top: 0;
+}
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+    Tool<span>Noob</span>
+</div>
+
+<a
+href="index.html"
+class="home">
+
+    ← All Tools
+
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="title">
+
+<h1>
+    QR Code Generator
+</h1>
+
+<p>
+    Create a QR code from text or a website link.
+</p>
+
+</section>
+
+
+<div class="tool-box">
+
+
+<textarea
+    id="qrText"
+    placeholder="Enter a website link or text..."
+></textarea>
+
+
+<button
+    class="generate"
+    onclick="generateQR()">
+
+    Generate QR Code
+
+</button>
+
+
+<div
+    class="qr-result"
+    id="qrResult">
+
+
+<div id="qrcode"></div>
+
+
+<br>
+
+
+<button
+    class="download"
+    onclick="downloadQR()">
+
+    Download QR Code
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<section class="info">
+
+<h2>
+    How to use
+</h2>
+
+<p>
+    Enter any text or website link and click
+    Generate QR Code. You can then scan the
+    QR code with a phone.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+© 2026 ToolNoob · Free online tools
+
+</footer>
+
+
+<!-- QR CODE LIBRARY -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+<script>
+
+let qr;
+
+
+function generateQR() {
+
+    const text =
+        document.getElementById(
+            "qrText"
+        ).value.trim();
+
+
+    if (!text) {
+
+        alert(
+            "Please enter some text or a link."
+        );
+
+        return;
+
+    }
+
+
+    const container =
+        document.getElementById(
+            "qrcode"
+        );
+
+
+    container.innerHTML = "";
+
+
+    qr =
+        new QRCode(
+            container,
+            {
+                text: text,
+                width: 220,
+                height: 220,
+                correctLevel:
+                    QRCode.CorrectLevel.H
+            }
+        );
+
+
+    document.getElementById(
+        "qrResult"
+    ).style.display =
+        "block";
+
+}
+
+
+function downloadQR() {
+
+    const canvas =
+        document.querySelector(
+            "#qrcode canvas"
+        );
+
+
+    if (!canvas) {
+
+        alert(
+            "Generate a QR code first."
+        );
+
+        return;
+
+    }
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.download =
+        "toolnoob-qr-code.png";
+
+
+    link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+
+    link.click();
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+

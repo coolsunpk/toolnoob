@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Word Counter - ToolNoob</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #171717;
+}
+
+header {
+    height: 68px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #666;
+}
+
+.home {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 55px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    font-size: 40px;
+    margin: 0 0 12px;
+}
+
+.title p {
+    color: #777;
+}
+
+.tool-box {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 25px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+
+textarea {
+    width: 100%;
+    min-height: 300px;
+
+    resize: vertical;
+
+    padding: 16px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #555;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.stat {
+    background: #f1f2f4;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.stat-label {
+    margin-top: 5px;
+    color: #777;
+    font-size: 13px;
+}
+
+.clear {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #171717;
+    color: white;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.info {
+    margin-top: 35px;
+
+    background: white;
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+    padding: 25px;
+
+    line-height: 1.7;
+}
+
+.info h2 {
+    margin-top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+
+    color: #777;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+
+    .title h1 {
+        font-size: 32px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+    Tool<span>Noob</span>
+</div>
+
+<a href="index.html" class="home">
+    ← All Tools
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="title">
+
+<h1>
+    Word Counter
+</h1>
+
+<p>
+    Count words, characters and sentences instantly.
+</p>
+
+</section>
+
+
+<div class="tool-box">
+
+
+<textarea
+    id="text"
+    placeholder="Start typing or paste your text here..."
+    oninput="countText()"
+></textarea>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div
+    class="stat-number"
+    id="words">
+
+    0
+
+</div>
+
+<div class="stat-label">
+    Words
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div
+    class="stat-number"
+    id="characters">
+
+    0
+
+</div>
+
+<div class="stat-label">
+    Characters
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div
+    class="stat-number"
+    id="sentences">
+
+    0
+
+</div>
+
+<div class="stat-label">
+    Sentences
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+    class="clear"
+    onclick="clearText()">
+
+    Clear Text
+
+</button>
+
+
+</div>
+
+
+<section class="info">
+
+<h2>
+    About the Word Counter
+</h2>
+
+<p>
+    Type or paste text into the box and
+    ToolNoob will automatically count the
+    words, characters and sentences.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+© 2026 ToolNoob · Free online tools
+
+</footer>
+
+
+<script>
+
+function countText() {
+
+    const text =
+        document.getElementById(
+            "text"
+        ).value;
+
+
+    const trimmed =
+        text.trim();
+
+
+    let words = 0;
+
+    if (trimmed.length > 0) {
+
+        words =
+            trimmed
+            .split(/\s+/)
+            .length;
+
+    }
+
+
+    const characters =
+        text.length;
+
+
+    let sentences = 0;
+
+    if (trimmed.length > 0) {
+
+        const matches =
+            trimmed.match(
+                /[.!?]+(?=\s|$)/g
+            );
+
+        sentences =
+            matches
+                ? matches.length
+                : 0;
+
+    }
+
+
+    document.getElementById(
+        "words"
+    ).textContent =
+        words;
+
+
+    document.getElementById(
+        "characters"
+    ).textContent =
+        characters;
+
+
+    document.getElementById(
+        "sentences"
+    ).textContent =
+        sentences;
+
+}
+
+
+function clearText() {
+
+    document.getElementById(
+        "text"
+    ).value = "";
+
+
+    countText();
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+

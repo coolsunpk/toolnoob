@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profit Calculator - ToolNoob</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #171717;
+}
+
+header {
+    height: 68px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #666;
+}
+
+.home {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 55px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.title h1 {
+    font-size: 40px;
+    margin: 0 0 12px;
+}
+
+.title p {
+    color: #777;
+}
+
+.calculator {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 30px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 9px;
+
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #555;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #171717;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+
+.result {
+    display: none;
+
+    margin-top: 25px;
+    padding: 25px;
+
+    background: #f1f2f4;
+    border-radius: 10px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.result-row:last-child {
+    border-bottom: none;
+}
+
+.result-row strong {
+    font-size: 17px;
+}
+
+.profit {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+.margin {
+    text-align: center;
+
+    margin-top: 7px;
+
+    color: #666;
+}
+
+.info {
+    margin-top: 35px;
+
+    background: white;
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+    padding: 25px;
+
+    line-height: 1.7;
+}
+
+.info h2 {
+    margin-top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+
+    color: #777;
+    font-size: 13px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+    Tool<span>Noob</span>
+</div>
+
+<a href="index.html" class="home">
+    ← All Tools
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="title">
+
+<h1>
+    Profit Calculator
+</h1>
+
+<p>
+    Calculate profit and profit margin.
+</p>
+
+</section>
+
+
+<div class="calculator">
+
+
+<div class="field">
+
+<label>
+    Cost Price
+</label>
+
+<input
+    type="number"
+    id="cost"
+    placeholder="Example: 10000"
+    min="0"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    Selling Price
+</label>
+
+<input
+    type="number"
+    id="selling"
+    placeholder="Example: 15000"
+    min="0"
+>
+
+</div>
+
+
+<button onclick="calculateProfit()">
+    Calculate Profit
+</button>
+
+
+<div class="result" id="result">
+
+
+<div class="result-row">
+
+<span>
+    Cost Price
+</span>
+
+<strong id="costResult">
+    0
+</strong>
+
+</div>
+
+
+<div class="result-row">
+
+<span>
+    Selling Price
+</span>
+
+<strong id="sellingResult">
+    0
+</strong>
+
+</div>
+
+
+<div class="profit" id="profitResult">
+    0
+</div>
+
+
+<div class="margin" id="marginResult">
+</div>
+
+
+</div>
+
+</div>
+
+
+<section class="info">
+
+<h2>
+    How it works
+</h2>
+
+<p>
+    Profit is calculated by subtracting the
+    cost price from the selling price.
+</p>
+
+<p>
+    <strong>Example:</strong>
+    If you buy something for Rs. 10,000
+    and sell it for Rs. 15,000, your profit
+    is Rs. 5,000.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+© 2026 ToolNoob · Free online tools
+
+</footer>
+
+
+<script>
+
+function calculateProfit() {
+
+    const cost =
+        parseFloat(
+            document.getElementById("cost").value
+        );
+
+    const selling =
+        parseFloat(
+            document.getElementById("selling").value
+        );
+
+
+    if (
+        isNaN(cost) ||
+        isNaN(selling)
+    ) {
+
+        alert(
+            "Please enter both prices."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        cost < 0 ||
+        selling < 0
+    ) {
+
+        alert(
+            "Prices cannot be negative."
+        );
+
+        return;
+
+    }
+
+
+    const profit =
+        selling - cost;
+
+
+    let margin = 0;
+
+    if (selling !== 0) {
+
+        margin =
+            (profit / selling) * 100;
+
+    }
+
+
+    document.getElementById(
+        "costResult"
+    ).textContent =
+        cost.toLocaleString();
+
+
+    document.getElementById(
+        "sellingResult"
+    ).textContent =
+        selling.toLocaleString();
+
+
+    if (profit >= 0) {
+
+        document.getElementById(
+            "profitResult"
+        ).textContent =
+            "Profit: " +
+            profit.toLocaleString();
+
+    } else {
+
+        document.getElementById(
+            "profitResult"
+        ).textContent =
+            "Loss: " +
+            Math.abs(profit).toLocaleString();
+
+    }
+
+
+    document.getElementById(
+        "marginResult"
+    ).textContent =
+        "Profit margin: " +
+        margin.toFixed(2) +
+        "%";
+
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
