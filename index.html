@@ -13,12 +13,12 @@ content="width=device-width, initial-scale=1.0">
 
 <meta
 name="description"
-content="ToolNoob provides free online calculators and useful tools including percentage, age, discount, profit, BMI, QR code and word counter tools."
+content="ToolNoob offers free online calculators and useful tools including percentage, age, discount, profit, BMI, QR code, password and word counter tools."
 >
 
 <meta
 name="keywords"
-content="free online tools, calculators, percentage calculator, age calculator, discount calculator, profit calculator, BMI calculator, QR code generator, word counter"
+content="free online tools, calculators, percentage calculator, age calculator, discount calculator, profit calculator, BMI calculator, QR code generator, password generator, word counter"
 >
 
 <style>
@@ -29,82 +29,183 @@ content="free online tools, calculators, percentage calculator, age calculator, 
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #f6f7f9;
     color: #171717;
 }
 
+
+/* HEADER */
+
 header {
+
     height: 72px;
+
     background: white;
-    border-bottom: 1px solid #e5e5e5;
+
+    border-bottom:
+        1px solid #e5e5e5;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 0 6%;
 }
 
+
+/* BRAND */
+
 .logo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
     font-size: 27px;
-    font-weight: 800;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    text-decoration: none;
 }
 
-.logo span {
+.logo-badge {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #171717;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.15);
+}
+
+.logo-name {
+
+    color: #171717;
+}
+
+.logo-name span {
+
     color: #777;
 }
 
+
+/* NAVIGATION */
+
 nav a {
+
     text-decoration: none;
+
     color: #333;
-    margin-left: 20px;
+
+    margin-left: 22px;
+
     font-size: 14px;
 }
 
+
+/* HERO */
+
 .hero {
+
     text-align: center;
-    padding: 80px 20px 50px;
+
+    padding:
+        85px 20px 55px;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin: 0 0 15px;
+
+    font-size: 50px;
+
+    margin:
+        0 0 18px;
+
+    letter-spacing: -1px;
 }
 
 .hero h1 span {
+
     color: #777;
 }
 
 .hero p {
+
     max-width: 650px;
+
     margin: auto;
+
     color: #666;
+
     line-height: 1.7;
+
     font-size: 18px;
 }
 
+
+/* TOOLS */
+
 .tools {
+
     max-width: 1100px;
+
     margin: auto;
-    padding: 30px 20px 80px;
+
+    padding:
+        30px 20px 80px;
 
     display: grid;
+
     grid-template-columns:
         repeat(3, 1fr);
 
     gap: 20px;
 }
 
+
+/* TOOL CARD */
+
 .tool {
+
     background: white;
 
-    border: 1px solid #e5e5e5;
+    border:
+        1px solid #e5e5e5;
+
     border-radius: 15px;
 
     padding: 25px;
 
     text-decoration: none;
+
     color: #171717;
 
     transition:
@@ -113,32 +214,42 @@ nav a {
 }
 
 .tool:hover {
-    transform: translateY(-4px);
+
+    transform:
+        translateY(-5px);
 
     box-shadow:
-        0 10px 30px
+        0 12px 30px
         rgba(0,0,0,.08);
 }
 
 .tool h2 {
+
     margin-top: 0;
+
     font-size: 21px;
 }
 
 .tool p {
+
     color: #666;
+
     line-height: 1.6;
+
     font-size: 14px;
 }
 
 .button {
+
     display: inline-block;
 
     margin-top: 10px;
 
-    padding: 9px 14px;
+    padding:
+        9px 14px;
 
     background: #171717;
+
     color: white;
 
     border-radius: 7px;
@@ -146,25 +257,40 @@ nav a {
     font-size: 13px;
 }
 
+
+/* ABOUT */
+
 .about {
+
     max-width: 850px;
+
     margin: auto;
-    padding: 0 20px 70px;
+
+    padding:
+        0 20px 80px;
 }
 
 .about h2 {
+
     font-size: 28px;
 }
 
 .about p {
+
     color: #666;
+
     line-height: 1.8;
 }
 
+
+/* FOOTER */
+
 footer {
+
     background: white;
 
-    border-top: 1px solid #e5e5e5;
+    border-top:
+        1px solid #e5e5e5;
 
     text-align: center;
 
@@ -176,14 +302,21 @@ footer {
 }
 
 footer a {
+
     color: #555;
+
     text-decoration: none;
+
     margin: 0 8px;
 }
+
+
+/* MOBILE */
 
 @media (max-width: 800px) {
 
     .tools {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -193,18 +326,23 @@ footer a {
 @media (max-width: 550px) {
 
     header {
-        padding: 0 20px;
+
+        padding:
+            0 20px;
     }
 
     nav {
+
         display: none;
     }
 
     .hero h1 {
+
         font-size: 38px;
     }
 
     .tools {
+
         grid-template-columns: 1fr;
     }
 
@@ -218,11 +356,22 @@ footer a {
 <body>
 
 
+<!-- HEADER -->
+
 <header>
 
-<div class="logo">
-    Tool<span>Noob</span>
-</div>
+<a href="index.html" class="logo">
+
+    <span class="logo-badge">
+        TN
+    </span>
+
+    <span class="logo-name">
+        Tool<span>Noob</span>
+    </span>
+
+</a>
+
 
 <nav>
 
@@ -239,6 +388,8 @@ footer a {
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
 <h1>
@@ -246,24 +397,22 @@ footer a {
 </h1>
 
 <p>
-
-Simple, fast and free online tools for
-calculations, text, productivity and everyday tasks.
-
+Simple, fast and free online tools for calculations,
+text, productivity and everyday tasks.
 </p>
 
 </section>
 
 
+<!-- TOOLS -->
+
 <section class="tools">
 
 
-<a
-href="percentage.html"
-class="tool">
+<a href="percentage.html" class="tool">
 
 <h2>
-    Percentage Calculator
+Percentage Calculator
 </h2>
 
 <p>
@@ -271,56 +420,50 @@ Calculate percentages quickly and easily.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="age.html"
-class="tool">
+<a href="age.html" class="tool">
 
 <h2>
-    Age Calculator
+Age Calculator
 </h2>
 
 <p>
-Calculate your exact age in years, months and days.
+Calculate your exact age from your date of birth.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="discount.html"
-class="tool">
+<a href="discount.html" class="tool">
 
 <h2>
-    Discount Calculator
+Discount Calculator
 </h2>
 
 <p>
-Calculate discounts, savings and final sale prices.
+Calculate discounts, savings and final prices.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="profit.html"
-class="tool">
+<a href="profit.html" class="tool">
 
 <h2>
-    Profit Calculator
+Profit Calculator
 </h2>
 
 <p>
@@ -328,18 +471,16 @@ Calculate profit, loss and profit margin.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="word-counter.html"
-class="tool">
+<a href="word-counter.html" class="tool">
 
 <h2>
-    Word Counter
+Word Counter
 </h2>
 
 <p>
@@ -347,18 +488,16 @@ Count words, characters, sentences and paragraphs.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="password.html"
-class="tool">
+<a href="password.html" class="tool">
 
 <h2>
-    Password Generator
+Password Generator
 </h2>
 
 <p>
@@ -366,18 +505,16 @@ Generate strong random passwords instantly.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="qr.html"
-class="tool">
+<a href="qr.html" class="tool">
 
 <h2>
-    QR Code Generator
+QR Code Generator
 </h2>
 
 <p>
@@ -385,37 +522,33 @@ Create QR codes from links and text.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="bmi.html"
-class="tool">
+<a href="bmi.html" class="tool">
 
 <h2>
-    BMI Calculator
+BMI Calculator
 </h2>
 
 <p>
-Calculate your Body Mass Index using height and weight.
+Calculate Body Mass Index using height and weight.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
 
 
-<a
-href="average.html"
-class="tool">
+<a href="average.html" class="tool">
 
 <h2>
-    Average Calculator
+Average Calculator
 </h2>
 
 <p>
@@ -423,7 +556,7 @@ Calculate the average of multiple numbers.
 </p>
 
 <span class="button">
-    Open Tool →
+Open Tool →
 </span>
 
 </a>
@@ -432,59 +565,56 @@ Calculate the average of multiple numbers.
 </section>
 
 
+<!-- ABOUT -->
+
 <section class="about">
 
 <h2>
-    About ToolNoob
+About ToolNoob
 </h2>
 
 <p>
-
-ToolNoob is a collection of simple,
-free online tools designed to make everyday
-calculations and tasks easier.
-
+ToolNoob is a collection of simple, free online tools designed
+to make everyday calculations and tasks easier.
 </p>
 
 <p>
-
-No account is required to use our basic tools.
-
+Our tools are designed to be fast, simple and easy to use.
+No account is required for the basic tools.
 </p>
 
 </section>
 
 
-<footer>
+<!-- FOOTER -->
 
+<footer>
 
 <div style="margin-bottom: 15px;">
 
 <a href="index.html">
-    Home
+Home
 </a>
 
 <a href="about.html">
-    About
+About
 </a>
 
 <a href="privacy.html">
-    Privacy
-</a>
-
-<a href="contact.html">
-    Contact
+Privacy
 </a>
 
 <a href="terms.html">
-    Terms
+Terms
 </a>
-    
+
+<a href="contact.html">
+Contact
+</a>
+
 </div>
 
-
 © 2026 ToolNoob · Free online tools
-
 
 </footer>
 
